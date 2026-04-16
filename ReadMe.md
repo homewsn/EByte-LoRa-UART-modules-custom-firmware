@@ -1,17 +1,20 @@
-## Custom firmware for 433MHz LoRa UART modules from EByte
+## Custom firmware for LoRa UART modules from EByte
 
 
 ### Hardware
 
-List of tested 433MHz LoRa UART modules from EByte:
-| Module | PCB Version | MCU | LoRa Core | Custom Firmware | Toolchain |
-| :------ | :------ | :------ | :------: | :------: | :------: |
-| E32-433T20D | 32100-V3.0 | STM8L151G6 | SX1278 | &check; | IAR EW STM8 |
-| E32-433T30D | 10010-V6.2 | STM8L151G6 | SX1278 | &check; | IAR EW STM8 |
-| E220-400T30D | 10408-V1.0 | HC32L110C4UA | LLCC68 |  |  |
-| E22-400T30D | 10498-V1.1 | MSP430FR2433 | LLCC68 |  |  |
-| E32-433T30D | 10498-V1.1 | MSP430FR2433 | LLCC68 |  |  |
-| E78-470LN22S | 10447-V1.0 | ASR6601CB | SX1262 |  |  |
+List of tested LoRa UART modules:
+| Module | Freq. Band | PCB Version | MCU | LoRa Core | Power, dBm | Antenna Conn. |
+| :------ | :------: | :------ | :------ | :------: | :------: | :------: |
+| E32-433T20D | 433/470 | 32100-V3.0 | STM8L151G6 | SX1278 | 20 | SMA |
+| E32-433T20D | 433/470 | 10012-V6.0 | STM8L151G6 | SX1278 | 20 | SMA |
+| E32-433T30D | 433/470 | 10010-V6.2 | STM8L151G6 | SX1278 | 30 | SMA |
+| E45-TTL-1W | 868 | 10024-V2.0 | STM8L151G6 | SX1278 | 30 | SMA |
+| E220-400T30D | 433/470 | 10408-V1.0 | HC32L110C4UA | LLCC68 | 30 | SMA |
+| E32-433T30D | 433/470 | 10498-V1.1 | MSP430FR2433 | LLCC68 | 30 | SMA |
+| E22-400T30D | 433/470 | 10498-V1.1 | MSP430FR2433 | LLCC68 | 30 | SMA |
+| E77-400M22S | 433/470 | 10526-V1.1 | STM32WLE5CC | SX1262 | 22 | IPEX |
+| E78-470LN22S | 433/470 | 10447-V1.0 | ASR6601CB | SX1262 | 22 | IPEX |
 
 #### E32-433T20D 32100-V3.0 (STM8L151G6 + SX1278)
 Bottom View:
