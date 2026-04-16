@@ -76,6 +76,12 @@
 #define SYSCFG_RMPCR1_USART1TR_REMAP1 5
 
 /* ITC - EXTI */
+#define EXTI_CR1                _SFR_(0xA0)
+#define EXTI_CR2                _SFR_(0xA1)
+#define EXTI_CR3                _SFR_(0xA2)
+#define EXTI_SR1                _SFR_(0xA3)
+#define EXTI_SR2                _SFR_(0xA4)
+#define EXTI_CONF1              _SFR_(0xA5)
 
 /* WFE */
 

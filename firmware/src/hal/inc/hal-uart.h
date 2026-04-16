@@ -15,6 +15,7 @@
 #ifndef HAL_UART_H_
 #define HAL_UART_H_
 
+//--------------------------------------------
 void hal_uart_init(void func(uint8_t byte));
 void hal_uart_tx(const uint8_t *buf, size_t len);
 

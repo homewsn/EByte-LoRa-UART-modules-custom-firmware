@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022, 2026 Vladimir Alemasov
+* Copyright (c) 2018, 2026 Vladimir Alemasov
 * All rights reserved
 *
 * This program and the accompanying materials are distributed under 
@@ -12,23 +12,16 @@
 * GNU General Public License for more details.
 */
 
-#include <stdbool.h>    /* bool */
-#include "platform.h"
-#include "lora-defs.h"
-#include "lora-drv.h"
-#include "sx1278.h"
-#include "lora-module-name.h"
+#ifndef HAL_SX127X_H_
+#define HAL_SX127X_H_
 
 //--------------------------------------------
-const lora_drv_t lora_drv =
-{
-	get_module_name,
-	sx1278_get_core_name,
-	sx1278_init,
-	sx1278_set_params,
-	sx1278_start_continious_rx,
-	sx1278_irq_poll,
-	sx1278_read_rx_packet,
-	sx1278_send_tx_packet,
-	sx1278_read_rssi
-};
+void hal_sx127x_init(void);
+void hal_sx127x_select(void);
+void hal_sx127x_release(void);
+uint8_t hal_sx127x_txrx(uint8_t data);
+void hal_sx127x_ctrl_clock(uint8_t val);
+void hal_sx127x_radio_rx(void);
+void hal_sx127x_radio_tx(void);
+
+#endif // HAL_SX127X_H_

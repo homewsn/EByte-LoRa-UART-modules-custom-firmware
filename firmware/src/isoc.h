@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2020, 2022 Vladimir Alemasov
+* Copyright (c) 2020 - 2026 Vladimir Alemasov
 * All rights reserved
 *
 * This program and the accompanying materials are distributed under
@@ -51,5 +51,9 @@ size_t isoc_air_pkt_cmd_rssi_snr(uint8_t *isoc_buf, const uint8_t *buf, const ui
 size_t isoc_air_pkt_cmd(uint8_t *isoc_buf, const uint8_t *buf, const uint8_t size);
 size_t isoc_set_lora_modes_cmd(uint8_t *isoc_buf, lora_modes_t *modes);
 size_t isoc_req_lora_modes_cmd(uint8_t *isoc_buf);
+uint8_t isoc_get_cmd(uint8_t *isoc_buf);
+size_t isoc_get_payload_length(uint8_t *isoc_buf);
+int16_t isoc_get_rssi(uint8_t *isoc_buf);
+int16_t isoc_get_air_pkt_rssi(uint8_t *isoc_buf);
 
 #endif // ISOC_H_

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2020, 2022 Vladimir Alemasov
+* Copyright (c) 2020 - 2026 Vladimir Alemasov
 * All rights reserved
 *
 * This program and the accompanying materials are distributed under
@@ -13,6 +13,7 @@
 */
 
 #include <stdint.h>		/* uint8_t */
+#include <stdbool.h>    /* bool */
 #include <stddef.h>     /* size_t */
 #include <string.h>     /* memcpy */
 #include "lora-defs.h"
@@ -217,4 +218,30 @@ size_t isoc_req_lora_modes_cmd(uint8_t *isoc_buf)
 	*(isoc_buf++) = 0;
 	*(isoc_buf++) = 0;
 	return (ISOC_HEADER_LENGTH);
+}
+
+//------------------------------------------------------------------
+uint8_t isoc_get_cmd(uint8_t *isoc_buf)
+{
+	return isoc_buf[2];
+}
+
+//------------------------------------------------------------------
+size_t isoc_get_payload_length(uint8_t *isoc_buf)
+{
+	return (isoc_buf[3] | (size_t)isoc_buf[4] << 8);
+}
+
+//------------------------------------------------------------------
+int16_t isoc_get_rssi(uint8_t *isoc_buf)
+{
+	size_t num = ISOC_HEADER_LENGTH;
+	return (isoc_buf[num] | (size_t)isoc_buf[num + 1] << 8);
+}
+
+//------------------------------------------------------------------
+int16_t isoc_get_air_pkt_rssi(uint8_t *isoc_buf)
+{
+	size_t num = ISOC_HEADER_LENGTH + (isoc_buf[3] | (size_t)isoc_buf[4] << 8) - ISOC_RSSI_SNR_LENGTH;
+	return (isoc_buf[num] | (size_t)isoc_buf[num + 1] << 8);
 }

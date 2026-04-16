@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2022 Vladimir Alemasov
+* Copyright (c) 2022, 2026 Vladimir Alemasov
 * All rights reserved
 *
 * This program and the accompanying materials are distributed under 
@@ -98,7 +98,8 @@ typedef enum
 	LORA_IRQ_CRC_ERROR,
 	LORA_IRQ_CAD_DONE,
 	LORA_IRQ_CAD_DETECTED,
-	LORA_IRQ_TIMEOUT
+	LORA_IRQ_TIMEOUT,
+	LORA_IRQ_PREAMBLE_DETECTED
 } lora_irq_src_t;
 
 //--------------------------------------------
@@ -121,6 +122,15 @@ typedef struct
 	lora_sf_t sf;
 	lora_cr_t cr;
 } lora_params_t;
+
+//--------------------------------------------
+typedef struct
+{
+	lora_params_t params;
+	bool ldro;
+	float bw_khz;
+	float symbol_length_ms;
+} lora_core_t;
 
 //--------------------------------------------
 #define LORA_SYNC_WORD_LORAWAN_PRIVATE   0x12
